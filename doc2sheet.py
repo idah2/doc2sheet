@@ -40,8 +40,7 @@ def main():
 			highlightp = highlight.find_parent()
 			prev = highlightp.find_previous_siblings("p")
 			for i in prev:
-				#child = i.findChild("span", {'class': 'c6'})
-				child = i.findChild("span", {'class': 'c19'})
+				child = i.findChild("span", {'class': 'c16'})
 				if (child):
 					chapter = child.text
 					break
@@ -59,7 +58,7 @@ def main():
 
 	# save all rows to file
 	newdf = pandas.DataFrame(rows)
-	with open('output.csv', 'a') as f:
+	with open('output.csv', 'w') as f:
 		newdf.to_csv(f, columns=["chapter", "category", "text", "comment"], index=False, mode='a', header=f.tell()==0, encoding='utf-8')
 		print("Done.")
 
